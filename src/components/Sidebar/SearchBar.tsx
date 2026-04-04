@@ -23,7 +23,8 @@ export function SearchBar() {
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         placeholder="Поиск по чатам..."
-        className="w-full bg-input text-sm text-white placeholder-gray-500 rounded-lg py-2 pl-9 pr-3 outline-none focus:ring-1 focus:ring-accent"
+        className="w-full text-sm rounded-lg py-2 pl-9 pr-3 outline-none focus:ring-1 focus:ring-accent"
+            style={{ background: 'var(--color-input)', color: 'var(--color-text)' }}
       />
       {searchQuery && (
         <button

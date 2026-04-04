@@ -45,7 +45,7 @@ export function MessageItem({ message }: Props) {
       <div className={`max-w-[80%] group relative ${isUser ? 'order-first' : ''}`}>
         {/* User message bubble */}
         {isUser ? (
-          <div className="bg-user rounded-2xl rounded-tr-sm px-4 py-3">
+          <div className="rounded-2xl rounded-tr-sm px-4 py-3" style={{ background: 'var(--color-user-bubble)' }}>
             {imageUrl && (
               <div className="mb-2">
                 <img

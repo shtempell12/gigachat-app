@@ -4,6 +4,31 @@
 
 @import 'highlight.js/styles/github-dark.css';
 
+/* ─── CSS Variables: Dark theme (default) ─── */
+:root,
+:root.dark {
+  --color-bg: #212121;
+  --color-sidebar: #171717;
+  --color-input: #2f2f2f;
+  --color-text: #ffffff;
+  --color-text-secondary: #9ca3af;
+  --color-border: #3d3d3d;
+  --color-accent: #19c37d;
+  --color-user-bubble: #2f2f2f;
+}
+
+/* ─── CSS Variables: Light theme ─── */
+:root.light {
+  --color-bg: #f9f9f9;
+  --color-sidebar: #f0f0f0;
+  --color-input: #e8e8e8;
+  --color-text: #111111;
+  --color-text-secondary: #6b7280;
+  --color-border: #d1d5db;
+  --color-accent: #10a37f;
+  --color-user-bubble: #e2e2e2;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -15,59 +40,23 @@ body,
 #root {
   height: 100%;
   overflow: hidden;
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
 
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: #3d3d3d;
-  border-radius: 3px;
-}
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
 
-/* Markdown prose overrides inside chat */
-.prose pre {
-  background: transparent;
-  padding: 0;
-  margin: 0;
-}
+/* Markdown prose */
+.prose p { margin-bottom: 0.75rem; }
+.prose pre { background: transparent; padding: 0; margin: 0; }
+.prose ul, .prose ol { margin-bottom: 0.75rem; padding-left: 1.5rem; }
+.prose h1, .prose h2, .prose h3 { margin-bottom: 0.5rem; margin-top: 1rem; font-weight: 600; }
+.prose table { border-collapse: collapse; width: 100%; margin-bottom: 0.75rem; }
+.prose th, .prose td { border: 1px solid var(--color-border); padding: 0.5rem 0.75rem; }
+.prose blockquote { border-left: 3px solid var(--color-accent); padding-left: 1rem; color: var(--color-text-secondary); }
 
-.prose p {
-  margin-bottom: 0.75rem;
-}
-
-.prose ul,
-.prose ol {
-  margin-bottom: 0.75rem;
-  padding-left: 1.5rem;
-}
-
-.prose h1,
-.prose h2,
-.prose h3 {
-  margin-bottom: 0.5rem;
-  margin-top: 1rem;
-  font-weight: 600;
-}
-
-.prose table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-bottom: 0.75rem;
-}
-
-.prose th,
-.prose td {
-  border: 1px solid #3d3d3d;
-  padding: 0.5rem 0.75rem;
-}
-
-.prose blockquote {
-  border-left: 3px solid #19c37d;
-  padding-left: 1rem;
-  color: #9ca3af;
-}
+/* Light theme code block override */
+:root.light .hljs { background: #f0f0f0 !important; color: #1a1a1a !important; }

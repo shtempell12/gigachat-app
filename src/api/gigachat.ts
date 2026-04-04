@@ -1,10 +1,11 @@
 import type { ChatSettings, GigaChatStreamChunk, Message, UploadedFile } from '@/types';
+import { getApiKey } from '@/store/uiStore';
 
 const API_BASE = 'https://api.openai.com/v1';
 
-function getApiKey(): string {
-  const key = import.meta.env.VITE_OPENAI_API_KEY as string;
-  if (!key) throw new Error('OpenAI API key not configured. Set VITE_OPENAI_API_KEY in .env');
+function requireApiKey(): string {
+  const key = getApiKey();
+  if (!key) throw new Error('API ключ не задан. Войдите в приложение.');
   return key;
 }
 
@@ -45,7 +46,7 @@ export async function sendMessage(
   const response = await fetch(`${API_BASE}/chat/completions`, {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${getApiKey()}`,
+      Authorization: `Bearer ${requireApiKey()}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
@@ -77,7 +78,7 @@ export async function* sendMessageStream(
   const response = await fetch(`${API_BASE}/chat/completions`, {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${getApiKey()}`,
+      Authorization: `Bearer ${requireApiKey()}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({

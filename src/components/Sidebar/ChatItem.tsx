@@ -5,9 +5,10 @@ import type { Chat } from '@/types';
 interface Props {
   chat: Chat;
   isActive: boolean;
+  onSelect?: () => void;
 }
 
-export function ChatItem({ chat, isActive }: Props) {
+export function ChatItem({ chat, isActive, onSelect }: Props) {
   const { selectChat, deleteChat, updateChatTitle } = useChatStore();
   const [editing, setEditing] = useState(false);
   const [title, setTitle] = useState(chat.title);
@@ -45,7 +46,7 @@ export function ChatItem({ chat, isActive }: Props) {
 
   return (
     <div
-      onClick={() => selectChat(chat.id)}
+      onClick={() => { selectChat(chat.id); onSelect?.(); }}
       className={`group flex items-center gap-2 px-3 py-2 rounded-lg cursor-pointer transition-colors ${
         isActive ? 'bg-input' : 'hover:bg-white/5'
       }`}
