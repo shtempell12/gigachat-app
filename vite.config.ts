@@ -20,20 +20,4 @@ export default defineConfig({
       },
     },
   },
-  server: {
-    proxy: {
-      '/api/gigachat': {
-        target: 'https://gigachat.devices.sberbank.ru',
-        changeOrigin: true,
-        rewrite: (p) => p.replace(/^\/api\/gigachat/, ''),
-        secure: false,
-      },
-      '/api/oauth': {
-        target: 'https://ngw.devices.sberbank.ru:9443',
-        changeOrigin: true,
-        rewrite: (p) => p.replace(/^\/api\/oauth/, ''),
-        secure: false,
-      },
-    },
-  },
 })

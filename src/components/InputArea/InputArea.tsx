@@ -62,7 +62,14 @@ export function InputArea() {
                 className="bg-black/30 rounded px-2 py-1 outline-none border border-border focus:border-accent"
                 value={settings.model}
                 onChange={(e) => updateSettings({ model: e.target.value })}
+                list="models-list"
               />
+              <datalist id="models-list">
+                <option value="gpt-4o" />
+                <option value="gpt-4o-mini" />
+                <option value="gpt-4-turbo" />
+                <option value="gpt-3.5-turbo" />
+              </datalist>
             </label>
             <label className="flex flex-col gap-1">
               <span className="text-gray-400">Temperature: {settings.temperature}</span>

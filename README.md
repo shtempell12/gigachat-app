@@ -1,6 +1,6 @@
 # GigaChat App
 
-Веб-приложение в стиле ChatGPT, работающее на базе GigaChat API от Сбера.
+Веб-приложение в стиле ChatGPT, работающее на базе OpenAI API.
 
 ## Скриншоты
 
@@ -95,15 +95,13 @@ npm install
 cp .env.example .env
 ```
 
-Откройте `.env` и заполните свои данные:
+Откройте `.env` и вставьте ключ:
 
 ```env
-VITE_GIGACHAT_CLIENT_ID=ваш_client_id
-VITE_GIGACHAT_CLIENT_SECRET=ваш_client_secret
-VITE_GIGACHAT_SCOPE=GIGACHAT_API_PERS
+VITE_OPENAI_API_KEY=sk-...
 ```
 
-> **Где получить credentials**: [Sber Studio](https://developers.sber.ru/studio/workspaces) → создать проект → GigaChat API → скопировать Client ID и Client Secret.
+> **Где получить ключ**: [platform.openai.com/api-keys](https://platform.openai.com/api-keys) → Create new secret key.
 
 ### 4. Запустите приложение
 
@@ -120,14 +118,9 @@ npm run build
 npm run preview
 ```
 
-## Техническое замечание о прокси
+## Примечание
 
-Vite Dev Server настроен как прокси для GigaChat API, чтобы обойти CORS:
-
-- `/api/gigachat/*` → `https://gigachat.devices.sberbank.ru/*`  
-- `/api/oauth/*` → `https://ngw.devices.sberbank.ru:9443/*`
-
-Для деплоя в продакшн необходимо настроить аналогичный прокси на уровне веб-сервера (nginx, Caddy) или использовать backend-прокси.
+OpenAI API поддерживает запросы напрямую из браузера — прокси не требуется.
 
 ## Примеры работы
 
