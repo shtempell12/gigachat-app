@@ -2,7 +2,7 @@ import { useUIStore } from '@/store/uiStore';
 import { AuthForm } from '@/components/Auth/AuthForm';
 import { Sidebar } from '@/components/Sidebar/Sidebar';
 import { ChatWindow } from '@/components/ChatWindow/ChatWindow';
-import { InputArea } from '@/components/InputArea/InputArea';
+import { InputArea } from '@/components/chat/InputArea';
 import { SettingsPanel } from '@/components/Settings/SettingsPanel';
 import { ErrorBoundary } from '@/components/ErrorBoundary/ErrorBoundary';
 

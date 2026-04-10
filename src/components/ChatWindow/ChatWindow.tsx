@@ -1,10 +1,12 @@
 import { useChatStore } from '@/store/chatStore';
 import { useUIStore } from '@/store/uiStore';
 import { useAutoScroll } from '@/hooks/useAutoScroll';
-import { MessageItem } from './MessageItem';
+import { Message } from '@/components/chat/Message';
+import { TypingIndicator } from '@/components/ui/TypingIndicator';
 
 export function ChatWindow() {
   const currentChat = useChatStore((s) => s.currentChat());
+  const isLoading = useChatStore((s) => s.isLoading);
   const messages = currentChat?.messages ?? [];
   const { toggleSidebar, openSettings } = useUIStore();
   const bottomRef = useAutoScroll([messages.length, messages.at(-1)?.content]);
@@ -59,8 +61,9 @@ export function ChatWindow() {
         <div className="flex-1 overflow-y-auto">
           <div className="max-w-3xl mx-auto pb-6">
             {messages.map((msg) => (
-              <MessageItem key={msg.id} message={msg} />
+              <Message key={msg.id} message={msg} />
             ))}
+            <TypingIndicator isVisible={isLoading && messages.at(-1)?.role !== 'assistant'} />
             <div ref={bottomRef} />
           </div>
         </div>
