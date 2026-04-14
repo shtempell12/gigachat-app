@@ -47,28 +47,6 @@
 - Настройка параметров: temperature, top_p, max_tokens, repetition_penalty
 - Мультимодальный ввод — отправка изображений через GigaChat API
 
-## Архитектура
-
-```
-src/
-├── api/
-│   └── gigachat.ts       # API-адаптер (OAuth + chat completions + file upload)
-├── store/
-│   └── chatStore.ts      # Zustand store — весь стейт приложения
-├── hooks/
-│   ├── useChat.ts        # Хук отправки сообщений (streaming + fallback)
-│   └── useAutoScroll.ts  # Хук автоскролла
-├── components/
-│   ├── ErrorBoundary/    # Изоляция ошибок компонентов
-│   ├── Sidebar/          # Боковая панель с управлением чатами
-│   ├── ChatWindow/       # Окно сообщений
-│   └── InputArea/        # Поле ввода + настройки модели
-├── types/
-│   └── index.ts          # TypeScript-типы
-└── utils/
-    └── storage.ts        # localStorage утилиты
-```
-
 ## Тесты
 
 ### Запуск
