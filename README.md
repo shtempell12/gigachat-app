@@ -31,10 +31,13 @@ npm run dev
 
 > Примечание, Groq API не работает без впн
 
+## Демо скриншоты
+- https://drive.google.com/drive/folders/1ImVfyKGdJvZtVjXGVIfbfmbqzFodQzLP?usp=drive_link
+
 ## Тесты
 
 ```bash
 npm test
 ```
 
-Покрыто: reducer (CREATE_CHAT, ADD_MESSAGE, DELETE_CHAT, RENAME_CHAT), localStorage, InputArea, Message, Sidebar — 35 тестов.
+Покрыто: reducer (CREATE_CHAT, ADD_MESSAGE, DELETE_CHAT, RENAME_CHAT), localStorage, InputArea, Message, Sidebar,35 тестов.
