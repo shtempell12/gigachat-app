@@ -1,7 +1,7 @@
 import type { ChatSettings, GigaChatStreamChunk, Message, UploadedFile } from '@/types';
 import { getApiKey } from '@/store/uiStore';
 
-const API_BASE = 'https://api.openai.com/v1';
+const API_BASE = 'https://api.groq.com/openai/v1';
 
 function requireApiKey(): string {
   const key = getApiKey();

@@ -14,8 +14,8 @@ export function AuthForm() {
       setError('Введите API ключ');
       return;
     }
-    if (!trimmed.startsWith('sk-')) {
-      setError('API ключ должен начинаться с «sk-»');
+    if (!trimmed.startsWith('gsk_')) {
+      setError('API ключ должен начинаться с «gsk_»');
       return;
     }
     setError('');
@@ -38,13 +38,13 @@ export function AuthForm() {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-[var(--color-text-secondary)] mb-1.5">
-              OpenAI API Key
+              Groq API Key
             </label>
             <input
               type="password"
               value={key}
               onChange={(e) => { setKey(e.target.value); setError(''); }}
-              placeholder="sk-..."
+              placeholder="gsk_..."
               className="w-full bg-[var(--color-input)] text-[var(--color-text)] rounded-xl px-4 py-3 outline-none border border-[var(--color-border)] focus:border-accent transition-colors placeholder-[var(--color-text-secondary)] text-sm"
               autoComplete="off"
             />
@@ -62,7 +62,7 @@ export function AuthForm() {
           <p className="text-center text-xs text-[var(--color-text-secondary)]">
             Ключ хранится в localStorage вашего браузера.{' '}
             <a
-              href="https://platform.openai.com/api-keys"
+              href="https://console.groq.com/keys"
               target="_blank"
               rel="noopener noreferrer"
               className="text-accent hover:underline"

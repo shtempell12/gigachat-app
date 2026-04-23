@@ -1,10 +1,14 @@
+import { lazy, Suspense } from 'react';
 import { useUIStore } from '@/store/uiStore';
 import { AuthForm } from '@/components/Auth/AuthForm';
 import { Sidebar } from '@/components/Sidebar/Sidebar';
 import { ChatWindow } from '@/components/ChatWindow/ChatWindow';
 import { InputArea } from '@/components/chat/InputArea';
-import { SettingsPanel } from '@/components/Settings/SettingsPanel';
 import { ErrorBoundary } from '@/components/ErrorBoundary/ErrorBoundary';
+
+const SettingsPanel = lazy(() =>
+  import('@/components/Settings/SettingsPanel').then((m) => ({ default: m.SettingsPanel })),
+);
 
 export default function App() {
   const apiKey = useUIStore((s) => s.apiKey);
@@ -28,9 +32,11 @@ export default function App() {
         </ErrorBoundary>
       </main>
 
-      <ErrorBoundary>
-        <SettingsPanel />
-      </ErrorBoundary>
+      <Suspense fallback={null}>
+        <ErrorBoundary>
+          <SettingsPanel />
+        </ErrorBoundary>
+      </Suspense>
     </div>
   );
 }

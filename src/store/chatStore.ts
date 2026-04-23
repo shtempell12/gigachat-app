@@ -4,7 +4,7 @@ import type { Chat, Message, ChatSettings } from '@/types';
 import { loadChats, saveChats } from '@/utils/storage';
 
 const DEFAULT_SETTINGS: ChatSettings = {
-  model: 'gpt-4o-mini',
+  model: 'llama-3.3-70b-versatile',
   temperature: 1.0,
   top_p: 0.9,
   max_tokens: 2048,

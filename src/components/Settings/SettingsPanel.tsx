@@ -12,7 +12,7 @@ const DEFAULTS: ChatSettings = {
   repetition_penalty: 1.0,
 };
 
-const MODELS = ['gpt-4o', 'gpt-4o-mini', 'gpt-4-turbo', 'gpt-3.5-turbo'];
+const MODELS = ['llama-3.3-70b-versatile', 'llama-3.1-8b-instant', 'mixtral-8x7b-32768', 'gemma2-9b-it'];
 
 export function SettingsPanel() {
   const { isSettingsOpen, closeSettings, theme, toggleTheme, clearApiKey } = useUIStore();
