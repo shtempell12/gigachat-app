@@ -1,24 +1,24 @@
 # GigaChat App
 
-Веб-приложение в стиле ChatGPT на базе Groq API 
+Веб-приложение в стиле ChatGPT на базе Groq API.
 
 ## Функциональность
 
 - Главный экран с областью сообщений и полем ввода
 - Визуальное разделение сообщений пользователя и ассистента
-- Markdown-форматирование ответов 
+- Markdown-форматирование ответов
 - Индикатор загрузки с анимацией, автоскролл к последнему сообщению
 - Копирование ответа ассистента, кнопка «Остановить генерацию»
 - Сохранение истории в `localStorage`
 - SSE streaming с fallback на REST
 - Мультимодальный ввод (изображения)
 
+## Требования
 
-### Требования
-- Node.js 
-- Groq API ключ: [console.groq.com/keys](https://console.groq.com/keys) 
+- Node.js 18+
+- Groq API ключ: [console.groq.com/keys](https://console.groq.com/keys)
 
-### Установка (запуск локально)
+## Установка
 
 ```bash
 git clone https://github.com/shtempell12/gigachat-app.git
@@ -27,12 +27,13 @@ npm install
 npm run dev
 ```
 
-Потом откройте  `http://localhost:5173`, и введите API Groq для входа 
+Откройте `http://localhost:5173` и введите Groq API ключ для входа.
 
-> Примечание, Groq API не работает без впн
+> Groq API не работает без VPN в России.
 
-## Демо скриншоты
-- https://drive.google.com/drive/folders/1ImVfyKGdJvZtVjXGVIfbfmbqzFodQzLP?usp=drive_link
+## Скриншоты
+
+[Смотреть на Google Drive](https://drive.google.com/drive/folders/1ImVfyKGdJvZtVjXGVIfbfmbqzFodQzLP?usp=drive_link)
 
 ## Тесты
 
@@ -40,4 +41,4 @@ npm run dev
 npm test
 ```
 
-Покрыто: reducer (CREATE_CHAT, ADD_MESSAGE, DELETE_CHAT, RENAME_CHAT), localStorage, InputArea, Message, Sidebar,35 тестов.
+Покрыто: reducer (CREATE_CHAT, ADD_MESSAGE, DELETE_CHAT, RENAME_CHAT), localStorage, InputArea, Message, Sidebar — 35 тестов.
